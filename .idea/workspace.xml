@@ -9,25 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7179efd2-7b62-40d6-a05f-33d3e4eb7984" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/uji/viajesws2/modelo/GestorViajes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/uji/viajesws2/modelo/Viaje.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/uji/viajesws2/servicios/AplicacionViajes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/es/uji/viajesws2/servicios/RecursoViajes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/viajes.json" afterDir="false" />
-    </list>
+    <list default="true" id="7179efd2-7b62-40d6-a05f-33d3e4eb7984" name="Changes" comment="final falta revisar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,8 +157,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670261913815</updated>
-      <workItem from="1670261914952" duration="10860000" />
+      <workItem from="1670261914952" duration="11224000" />
     </task>
+    <task id="LOCAL-00001" summary="final falta revisar">
+      <created>1670273268957</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670273268957</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,5 +182,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="final falta revisar" />
+    <option name="LAST_COMMIT_MESSAGE" value="final falta revisar" />
   </component>
 </project>
