@@ -163,21 +163,21 @@ public class GestorViajes {
     public JSONObject reservaViaje(String codviaje, String codcli) {
         JSONObject reserva = new JSONObject();
         if (mapa.get(codviaje) == null) { // SI no existe en el mapa
-            // System.out.println("No existe el viaje");
+
             return reserva;
         }
         else if (mapa.get(codviaje).getCodprop().equals(codcli)) { // SI cliente es el propietario
-            // System.out.println("No puedes reservar tu propio viaje");
+
             return reserva;
         }
         else if (mapa.get(codviaje).finalizado()) {// Si Ha finalizado
-            // System.out.println("No puedes reservar un viaje finalizado");
+
             return reserva;
         }
         else if (mapa.get(codviaje).anyadePasajero(codcli)) { // Si se puede anyadir(quedan plazas)
             reserva = mapa.get(codviaje).toJSON(); //Meto en reserva el viaje
         } else { //No se añade por que no hay plazas
-            // System.out.println("No quedan plazas");
+
             return reserva;//
         }
 
@@ -193,22 +193,20 @@ public class GestorViajes {
      */
     public JSONObject anulaReserva(String codviaje, String codcli) {
         JSONObject anulacion = new JSONObject();
-        if (mapa.get(codviaje) == null) // SI no existe en el mapa
+        if (mapa.get(codviaje) == null) { // SI no existe en el mapa
+            System.out.println("no existe");
             return anulacion; // Devolvemos JSON vacío
+        }
         else if (!mapa.get(codviaje).getPasajeros().contains(codcli)) { // Si el propietario y el cliente son iguales
-            // System.out.println("No puedes anular la reserva a un viaje no reservado por ti");
             return anulacion;
         }
         else if (mapa.get(codviaje).finalizado()) {// Ha finalizado
-            // System.out.println("No puede anularse un viaje que ya ha finalizado");
+
             return anulacion;
         }
         else if (mapa.get(codviaje).borraPasajero(codcli)) { //Si se puede borrar(osea que el cliente si que hizo esa reserva)
             anulacion = mapa.get(codviaje).toJSON(); // Metemos en el objeto JSON el viaje
-            /*OTRA IMPLEMENTACION
-            mapa.get(codviaje).getPasajeros().remove(codcli); // Eliminamos el pasajero del mapa
-            mapa.get(codviaje).setNumplazas(mapa.get(codviaje).getNumplazas() + 1); // Añadimos una plaza libre
-             */
+
         } else { //No ha podido borrarse ya que el cliente no realizo esa reserva
             return anulacion;
         }
@@ -251,15 +249,12 @@ public class GestorViajes {
     public JSONObject ofertaViaje(String codcli, String origen, String destino, String fecha, long precio, long numplazas) {
         JSONObject oferta = new JSONObject();
         if (!es_fecha_valida(fecha)) { // SI la fecha no es valida
-            //System.out.println("Fecha incorrecta");
             return oferta; // Devolvemos JSON vacío
         }
         if (precio < 0) { // SI el precio menos que 0
-            //System.out.println("Precio incorrecto");
             return oferta; // Devolvemos JSON vacío
         }
         if (numplazas <= 0) { // Si el numero plazas menos o igual que 0
-            //System.out.println("Número de plazas incorrecto");
             return oferta; // Devolvemos JSON vacío
         }
         Viaje nuevo = new Viaje(codcli, origen, destino, fecha, precio, numplazas); // Creamos nuevo viaje
@@ -279,15 +274,12 @@ public class GestorViajes {
     public JSONObject borraViaje(String codviaje, String codcli) {
         JSONObject borrado = new JSONObject();
         if (mapa.get(codviaje) == null) { // SINO esta en el mapa
-            //  System.out.println("El viaje no existe");
             return borrado; // Devolvemos JSON vacío
         }
         else if (!mapa.get(codviaje).getCodprop().equals(codcli)) { // Si el cliente intenta borrar un viaje que no es suyo
-            // System.out.println("El viaje no puede borrarse ya que no le pertenece");
             return borrado; // Devolvemos JSON vacío
         }
         else if (mapa.get(codviaje).finalizado()) { // Si el viaje ha finalizado
-            //  System.out.println("El viaje no ha podido borrarse ya que ya ha finalizado");
             return borrado; // Devolvemos JSON vacío
         }
         borrado = mapa.get(codviaje).toJSON();

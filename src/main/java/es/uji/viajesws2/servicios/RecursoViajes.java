@@ -12,8 +12,7 @@ import org.json.simple.JSONObject;
 
 @Path("viajes")
 public class RecursoViajes {
-
-	private GestorViajes gestor = null;
+	private GestorViajes gestor;
 
 	/**
 	 * Constructor por defecto
@@ -46,18 +45,9 @@ public class RecursoViajes {
 	@Path("/consulta/{origen}")
 	@Produces("application/json")
 	public Response consultaViajes(@PathParam("origen") String origen) {
-		//System.out.println("HACIENDO CONSULTA");
-		/* POR IMPLEMENTAR */
-		System.out.println(origen);
 		JSONArray viajes = gestor.consultaViajes(origen);
-		System.out.println("consulta hecha");
-		System.out.println(viajes);
-		if (viajes.isEmpty()) {
-			return Response.status(Response.Status.NOT_FOUND).build();
-		} else {
-			ResponseBuilder builder = Response.ok(viajes);
-			return builder.build();
-		}
+		ResponseBuilder builder = Response.ok(viajes);
+		return builder.build();
 	}
 
 	/**
@@ -72,13 +62,8 @@ public class RecursoViajes {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response reservaViaje(@QueryParam("codviaje") String codviaje, @QueryParam("codcli") String codcli) { // CABECERA POR COMPLETAR
 		JSONObject viaje = gestor.reservaViaje(codviaje,codcli);
-		if (viaje.isEmpty()) {
-			return Response.status(Response.Status.NOT_FOUND).build();
-		} else {
-			String reserva = viaje.toJSONString();
-			ResponseBuilder builder = Response.ok(reserva);
-			return builder.build();
-		}
+		ResponseBuilder builder = Response.ok(viaje);
+		return builder.build();
 	}
 
 	/**
@@ -93,13 +78,8 @@ public class RecursoViajes {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response anulaReserva(@QueryParam("codviaje") String codviaje, @QueryParam("codcli") String codcli) {
 		JSONObject viaje = gestor.anulaReserva(codviaje,codcli);
-		if (viaje.isEmpty()) {
-			return Response.status(Response.Status.NOT_FOUND).build();
-		} else {
-			String anulacion = viaje.toJSONString();
-			ResponseBuilder builder = Response.ok(anulacion);
-			return builder.build();
-		}
+		ResponseBuilder builder = Response.ok(viaje);
+		return builder.build();
 	}
 
 	/**
@@ -119,13 +99,8 @@ public class RecursoViajes {
 								@QueryParam("destino") String destino,@QueryParam("fecha") String fecha,
 								@QueryParam("precio") long precio,@QueryParam("numplazas") long numplazas) {
 		JSONObject viaje = gestor.ofertaViaje(codcli,origen,destino,fecha,precio,numplazas);
-		if (viaje.isEmpty()) {
-			return Response.status(Response.Status.NOT_FOUND).build();
-		} else {
-			String ofertado = viaje.toJSONString();
-			ResponseBuilder builder = Response.ok(ofertado);
-			return builder.build();
-		}
+		ResponseBuilder builder = Response.ok(viaje);
+		return builder.build();
 	}
 
 
@@ -143,15 +118,7 @@ public class RecursoViajes {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response borraViaje(@QueryParam("codviaje") String codviaje,@QueryParam("codcli") String codcli) {
 		JSONObject viaje = gestor.borraViaje(codviaje,codcli);
-		if (viaje.isEmpty()) {
-			return Response.status(Response.Status.NOT_FOUND).build();
-		} else {
-			String borrado = viaje.toJSONString();
-			ResponseBuilder builder = Response.ok(borrado);
-			return builder.build();
-		}
+		ResponseBuilder builder = Response.ok(viaje);
+		return builder.build();
 	}
-
-
-
 }
